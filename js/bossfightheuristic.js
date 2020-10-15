@@ -1,11 +1,11 @@
 var BossFightHeuristic = {};
 
-BossFightHeuristic.solve =
+BossFightHeuristic.solve = //solve saintEnergies with SaintPowers
     function(houseDifficulties, saintEnergies, saintPowers) {
         var bossHouses = [];
         var saints = [];
 
-        saintEnergies.map(function(energy, i, arr) {
+        saintEnergies.map(function(energy, i, arr) { //map saintEnergy 
             var saint = new Saint(energy, saintPowers[i], i);
             saints.push(saint);
         });
@@ -48,7 +48,7 @@ function Saint(energy, power, number) {
     this.power = power;
 }
 
-BossFightHeuristic.getMostPowerfulSaintAvailable = function(saints) {
+BossFightHeuristic.getMostPowerfulSaintAvailable = function(saints) { // Here get most power of Saint and show in the index 
     var mostPowerfulSaint = null;
     var numSaintsAvailable = 0;
     saints.map(function(saint) {
