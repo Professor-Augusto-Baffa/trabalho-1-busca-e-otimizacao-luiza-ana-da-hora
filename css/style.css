@@ -1,0 +1,13 @@
+canvas,
+.game-ui {
+    display: inline-block;
+}
+
+.game-ui {
+    vertical-align: top;
+    margin: 5px;
+}
+
+.button-container {
+    margin-bottom: 5px;
+}
