@@ -1,25 +1,24 @@
 var BossFightHeuristic = {};
 
-BossFightHeuristic.solve = //solve saintEnergies with SaintPowers
+BossFightHeuristic.solve =
     function(houseDifficulties, saintEnergies, saintPowers) {
         var bossHouses = [];
         var saints = [];
 
-        saintEnergies.map(function(energy, i, arr) { //map saintEnergy 
+        saintEnergies.map(function(energy, i, arr) {
             var saint = new Saint(energy, saintPowers[i], i);
             saints.push(saint);
         });
         saints.sort(function(a, b) {
             return b.power - a.power;
-        }); // sort saints in descending powers
+        });
 
         houseDifficulties.map(function(difficulty, i, arr) {
             bossHouses.push(new BossHouse(difficulty, i + 1));
         });
         bossHouses.sort(function(a, b) {
             return b.difficulty - a.difficulty;
-        }); // sort houses in descending difficulty
-
+        });
         var i = 0;
         var currentSaint = null;
         while ((currentSaint = BossFightHeuristic.getMostPowerfulSaintAvailable(
@@ -32,7 +31,7 @@ BossFightHeuristic.solve = //solve saintEnergies with SaintPowers
         }
         bossHouses.sort(function(a, b) {
             return a.number - b.number;
-        }); // sort houses by number in ascending order
+        }); // 
         return bossHouses;
     }
 
@@ -48,7 +47,7 @@ function Saint(energy, power, number) {
     this.power = power;
 }
 
-BossFightHeuristic.getMostPowerfulSaintAvailable = function(saints) { // Here get most power of Saint and show in the index 
+BossFightHeuristic.getMostPowerfulSaintAvailable = function(saints) { // daqui vai sair o maior poder disponivel para a rodada
     var mostPowerfulSaint = null;
     var numSaintsAvailable = 0;
     saints.map(function(saint) {
@@ -63,7 +62,7 @@ BossFightHeuristic.getMostPowerfulSaintAvailable = function(saints) { // Here ge
             }
         }
     });
-    if (numSaintsAvailable === 1 && mostPowerfulSaint.energy === 1) { // last saint alive
+    if (numSaintsAvailable === 1 && mostPowerfulSaint.energy === 1) { // ultimo cavaleiro vivo
         return null;
     }
     return mostPowerfulSaint;

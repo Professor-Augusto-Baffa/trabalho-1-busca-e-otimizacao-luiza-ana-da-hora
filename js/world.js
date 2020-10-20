@@ -117,20 +117,20 @@ World.prototype.astarStep = function() {
 };
 
 World.prototype.saintSearch = function() {
-    var houseResults = BossFightHeuristic.solve(this.houseCosts, this.saintEnergies,
-        this.saintPowers);
-    var that = this;
-    var totalCost = 0;
-    for (var i = 0; i < houseResults.length; i++) {
-        totalCost += calcEffectiveCost(houseResults[i].difficulty,
-            houseResults[i].saints,
-            that.saintPowers);
+        var houseResults = BossFightHeuristic.solve(this.houseCosts, this.saintEnergies,
+            this.saintPowers);
+        var that = this;
+        var totalCost = 0;
+        for (var i = 0; i < houseResults.length; i++) {
+            totalCost += calcEffectiveCost(houseResults[i].difficulty,
+                houseResults[i].saints,
+                that.saintPowers);
+        }
+        this.houseResults = houseResults;
+        this.totalBossFightCost = totalCost;
+        this.render();
     }
-    this.houseResults = houseResults;
-    this.totalBossFightCost = totalCost;
-    this.render();
-}
-
+    // função para renderização do mundo (tabuleiro e jogadores)
 World.prototype.render = function() {
     var pathFindData = null;
     if (this.astar !== null) {
@@ -159,7 +159,7 @@ World.prototype.render = function() {
             }
             pathLength = partialPath.length;
         }
-        /* data for react */
+        // idenfiticando para a parte visual quem é quem 
         pathFindData = {
             'saints': this.saints,
             'position': this.astar.currentCellIndex,

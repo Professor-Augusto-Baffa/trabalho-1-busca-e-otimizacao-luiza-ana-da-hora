@@ -3,13 +3,13 @@ var PathFindStatus = React.createClass({
         return (
             <div className="panel panel-primary" id="path-find-status">
                 <div className="panel-heading">
-                    <h2 className="panel-title">Path Find Status</h2>
+                    <h2 className="panel-title">Status do Caminho</h2>
                 </div>
                 <div className="panel-body">
-                    <span>Steps: {this.props.data.steps}</span> < br />
-                    <span>Path Size: {this.props.data.pathSize}</span> < br />
-                    <span>Path Cost: {this.props.data.pathCost}</span> < br />
-                    <span>Current Position: {this.props.data.position[0]}, {this.props.data.position[1]}</span>
+                    <span>Passos: {this.props.data.steps}</span> < br />
+                    <span> Tamanho do Caminho: {this.props.data.pathSize}</span> < br />
+                    <span>Custo do Caminho: {this.props.data.pathCost}</span> < br />
+                    <span>Posição Atual: {this.props.data.position[0]}, {this.props.data.position[1]}</span>
                 </div>
             </div>
         );
@@ -22,10 +22,10 @@ var BossFightStatus = React.createClass({
         return (
             <div className="panel panel-primary" id="boss-fight-status">
                 <div className="panel-heading">
-                    <h2 className="panel-title">Boss Fight Status</h2>
+                    <h2 className="panel-title">Status Luta</h2>
                 </div>
                 <div className="panel-body">
-                    <span>Total Boss Fight Cost: {this.props.data.totalCost}</span> <br />
+                    <span>Custo total da Luta: {this.props.data.totalCost}</span> <br />
                     <SaintStatsTable data={this.props.data}/>
                     <BossFightTable data={this.props.data}/>
                 </div>
@@ -42,17 +42,17 @@ var SaintStatsTable = React.createClass({
         }
         return (
             <div id="stats">
-                <h2>Starting Stats</h2>
+                <h2></h2>
                 <table className="table table-striped" id="stats-table">
                     <tr>
                         <th>
-                            Saints
+                     Cavaleiro
                         </th>
                         <th>
-                            Power
+                         Poder
                         </th>
                         <th>
-                            Energy
+                       Energia
                         </th>
                     </tr>
                     {saintStatsRows}
@@ -82,20 +82,20 @@ var BossFightTable = React.createClass({
         }
         return (
             <div id="boss-fight-table">
-                <h2>Boss Fights</h2>
+                <h2>Lutas</h2>
                 <table className="table table-striped" id="energy-table">
                     <tr>
                         <th>
-                            House Number
+                           Numero da casa
                         </th>
                         <th>
-                            House Difficulty
+                            Dificuldade
                         </th>
                         <th>
-                            Combination
+                           Combinação
                         </th>
                         <th>
-                            Effective Cost
+                           Custo
                         </th>
                     </tr>
                     {fightRows}

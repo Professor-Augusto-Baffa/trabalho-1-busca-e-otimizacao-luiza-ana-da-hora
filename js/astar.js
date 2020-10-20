@@ -68,7 +68,7 @@ AStar.prototype.start = function() {
 };
 
 AStar.prototype.step = function() {
-    if (this.openCellsIndexes.length === 0) { // if there are no more opened cells
+    if (this.openCellsIndexes.length === 0) {
         return false;
     }
     if (this.path !== null) {
@@ -78,7 +78,7 @@ AStar.prototype.step = function() {
 
     this.steps++;
 
-    this.currentCellIndex = this.getLowestFCostCell(this.openCellsIndexes); // Get the lowest f-value from opened nodes
+    this.currentCellIndex = this.getLowestFCostCell(this.openCellsIndexes);
     var currentCell = this.grid.getCellByIndex(this.currentCellIndex);
 
     if (end[0] === this.currentCellIndex[0] && end[1] === this.currentCellIndex[
@@ -89,17 +89,17 @@ AStar.prototype.step = function() {
     this.openCellsIndexes.splice(this.grid.findCellIndexFromArray(
             this.openCellsIndexes,
             this.currentCellIndex),
-        1); // remove current cell from open cells list
+        1);
 
-    this.closedCellsIndexes.push(this.currentCellIndex); // add current cell to closed cells list
+    this.closedCellsIndexes.push(this.currentCellIndex);
 
-    var neighbors = this.grid.getNeighbors(this.currentCellIndex); // get neighbors
+    var neighbors = this.grid.getNeighbors(this.currentCellIndex);
     for (var i = 0; i < neighbors.length; i++) {
         var neighborIndex = neighbors[i];
         var neighborCell = this.grid.getCellByIndex(neighborIndex);
         if (this.grid.findCellIndexFromArray(this.closedCellsIndexes,
                 neighborIndex) !=
-            -1) { // if neighbor is in the closed set
+            -1) {
             continue;
         }
         var tentativeGCost = currentCell.gCost + CellType.getCost(
