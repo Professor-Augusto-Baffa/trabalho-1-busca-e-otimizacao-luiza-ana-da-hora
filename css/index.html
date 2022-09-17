@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<header>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AI Heuristic Search</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/style.css" media="screen" title="no title" charset="utf-8">
+</header>
+
+<body>
+    <canvas width="941" height="1009"></canvas>
+    <div id="game-ui" class="game-ui">
+        <div id="buttons" class="button-container">
+            <button id="astar-step" class="btn btn-lg btn-primary"> Em frente</button>
+            <button id="astar-10step" class="btn btn-lg btn-primary">Em frente 10 vezes</button>
+            <button id="astar-end" class="btn btn-lg btn-primary">Final</button>
+            <button id="saints-combination" class="btn btn-lg btn-primary">Combinação</button>
+        </div>
+        <div id="status-container" class="status-container">
+            <div id="path-status" class="path-status"></div>
+            <div id="boss-status" class="boss-status"></div>
+        </div>
+    </div>
+</body>
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://fb.me/react-0.13.3.js"></script>
+<script src="https://fb.me/JSXTransformer-0.13.3.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="js/celltype.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/astar.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/grid.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/saintsearch.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/bossfightheuristic.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/world.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/jsx" src="js/ui.jsx"></script>
+
+</html>
